@@ -35,7 +35,7 @@ Examine the correlation between streams and musical attributes like bpm, danceab
 Is there a correlation between danceability_% and energy_%? How about valence_% and acousticness_%?
 
 ### F. Platform Popularity
-How do the numbers of tracks in spotify_playlists, spotify_charts, and apple_playlists compare? Which platform seems to favor the most popular tracks?
+How do the numbers of tracks in spotify_playlists, ~~spotify_charts, and apple_playlists~~,deezer_playlists, and apple_playlists compare? Which platform seems to favor the most popular tracks?
 
 ### G. Advanced Analysis
 Based on the streams data, can you identify any patterns among tracks with the same key or mode (Major vs. Minor)?
@@ -131,9 +131,9 @@ There is a faint growth, although it is scattered thoroughly, it could be seen a
 
 ![image](https://github.com/user-attachments/assets/9c4e0598-32f6-43c0-ae82-382903d0a762)
 
-Most are clumped at the bottom, meaning there are just not enough songs with higher acousticness that made it to the data set to be able to make an accurate assessment of its correlation.
+Most are clumped at the bottom, meaning there are just not enough songs with higher acousticness that made it to the data set to accurately assess or even make sense of their correlation.
 
 
-
+### Section F - Platform Popularity
 
 
