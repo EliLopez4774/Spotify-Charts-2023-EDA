@@ -75,4 +75,25 @@ First, importing the required libraries is imperative to manipulate, explore, an
 The object pertains to strings and int64 to int values. Some columns must be changed from objects to numerics for mathematical functions such as Central Tendency Functions and Correlation functions. This change however was done after identifying the NaN values and changing them. **There are only two columns with NaN values, the in_shazam_charts with 50 empty entries and key columns with 95 empty entries**, thanks to the help of the combination of .ismull function and .sum function. And with the use of .fillna, the null values were change to either 0s for the in_shazam_charts column, or unknown for the key column. And then after a few manipulation and replacement of commas into nothing, as well as handling a very specific case, using pd.to_numeric, the data types of certain columns like the streams, in_deezer_playlist and in_shazam_charts were replaced to int64
 
 ### Section B - Basic Descriptive Statistics
-Thanks to the stream column's data type altered, the Central Tendency functions can now be used, presenting a **mean of 513597931.3137461 streams**, a **median of 290228626 streams**, and the **mode was 156338624 streams**. Outliers can easily be determined using .describe, by looking at the max values, however, two separate dataframes had to be made using .groupby in conjunction with .size, making one for how many songs from each year did it make to the top streamed data set, and how many songs had how many artists. It is also especially emphasized with visual presentation, a bar graph, which shows that the outliers was probably the year 2022, which makes sense, the songs last year were the most popular songs of the current year. The graph also shows that generally, the closer the year is to the current one, the more songs from that year makes it to the data set. As for the artist count, it see,s
+Thanks to the stream column's data type altered, the Central Tendency functions can now be used, presenting a **mean of 513597931.3137461 streams**, a **median of 290228626 streams**, and the **mode was 156338624 streams**. Outliers can easily be determined using .describe, by looking at the max values, however, two separate dataframes had to be made using .groupby in conjunction with .size, making one for how many songs from each year did it make to the top streamed data set, and how many songs had how many artists. It is also especially emphasized with visual presentation, a bar graph, which shows that the outliers was probably the year 2022, which makes sense, the songs last year were the most popular songs of the current year. The graph also shows that generally, the closer the year is to the current one, the more songs from that year makes it to the data set. 
+
+![image](https://github.com/user-attachments/assets/1df587ac-2048-4562-8a17-ad5c58160ed6)
+
+
+As for the artist count, it seems that the less artist makes a song, the less popular it is, which makes sense, considering collabs with multiple artists and/or bands are rare and songs from one artist or band are more often released. 
+
+![image](https://github.com/user-attachments/assets/943383b5-7e41-45e3-81cb-4a165d268fe5)
+
+
+### Section C - Top Performers
+By using the .copy, .sort_values, and .head functions, it is easy to identify which song has the highest streams, which are the following
+
+![image](https://github.com/user-attachments/assets/fadf7d67-0144-49fc-9962-40e768efdd27)
+
+Blinding Lights seems to be the most streamed song of the year. However, none of the top 5 songs were from the artist with the most songs on the board.
+
+Using .groupby, it is easy to merge how many songs released by the artist were able to make it to top streams of 2023, presenting a result of;
+
+![image](https://github.com/user-attachments/assets/477063a3-9cf2-4266-a83f-88d434ca9e44)
+
+Taylor Swift has the most song entries that made it to the 2023 most streamed songs: talk about unironic. The Weeknd followed her, though he did get his song as the most streamed of the year and also got the most streamed artist (see Section G).
