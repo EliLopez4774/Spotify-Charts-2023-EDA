@@ -10,7 +10,9 @@ For this task, the following
 - Mathplot Library
 - Seaborn Library
 
-## Guidelines and Questions
+## Guide Questions
+
+These served as a guidlines and the questions posed for the code written, the results, and the visual presentations as well as its interpretations are to answer.
 
 ### A. Overview of Dataset
 How many rows and columns does the dataset contain?
@@ -42,10 +44,10 @@ Do certain genres or artists consistently appear in more playlists or charts? Pe
 
 # ---------------------------------------------------------------
 
-### Section A
-First, importing the required libraries is imperative to manipulate, explore, and clean the data, and then import the dataset using pd.read_csv function. the syntax was a little bit different as the traditional, as the .csv file was not utf-8 compatible, so the latin-1 syntax had to be added. Then, using the len function, with axis=0, it is easy to determine the number of rows and axis=1 for the number of columns as well, presenting 953 rows and 24 columns. To show the data types of each column, the function dtype was used and the results are as follows
+### Section A - Dataset Overview
+First, importing the required libraries is imperative to manipulate, explore, and clean the data, then importing the dataset using pd.read_csv function. the syntax was a little bit different as the traditional, as the .csv file was not utf-8 compatible, so the latin-1 syntax had to be added. Then, using the len function, with axis=0, it is easy to determine the number of rows and axis=1 for the number of columns, presenting **953 rows and 24 columns**. To show the data types of each column, the function dtype was used and the results are as follows;
 
-- track_name -              object
+**- track_name -              object
 - artist(s)_name -         object
 - artist_count -            int64
 - released_year -           int64
@@ -68,6 +70,9 @@ First, importing the required libraries is imperative to manipulate, explore, an
 - acousticness_% -          int64
 - instrumentalness_% -      int64
 - liveness_% -              int64
-- speechiness_% -           int64
+- speechiness_% -           int64**
 
-The object pertains to strings and int64 to int values. Some columns must be changed from objects to numerics for mathematical functions such as Central Tendency Functions and Correlation functions. This change however was done after identifying the NaN values and changing them. There are only two columns with NaN values, the in_shazam_charts and key columns, thanks to the help of the combination of .ismull function and .sum function. And with the use of .fillna, the null values were change to either 0s for the in_shazam_charts column, or unknown for the key column. And then after a few manipulation and replacement of commas into nothing, as well as handling a very specific case, using pd.to_numeric, the data types of certain columns like the streams, in_deezer_playlist and in_shazam_charts were replaced to int64
+The object pertains to strings and int64 to int values. Some columns must be changed from objects to numerics for mathematical functions such as Central Tendency Functions and Correlation functions. This change however was done after identifying the NaN values and changing them. **There are only two columns with NaN values, the in_shazam_charts with 50 empty entries and key columns with 95 empty entries**, thanks to the help of the combination of .ismull function and .sum function. And with the use of .fillna, the null values were change to either 0s for the in_shazam_charts column, or unknown for the key column. And then after a few manipulation and replacement of commas into nothing, as well as handling a very specific case, using pd.to_numeric, the data types of certain columns like the streams, in_deezer_playlist and in_shazam_charts were replaced to int64
+
+### Section B - Basic Descriptive Statistics
+Thanks to the stream column's data type altered, the Central Tendency functions can now be used, presenting a **mean of 513597931.3137461 streams**, a **median of 290228626 streams**, and the **mode was 156338624 streams**. Outliers can easily be determined using .describe, by looking at the max values, however, two separate dataframes had to be made using .groupby in conjunction with .size, making one for how many songs from each year did it make to the top streamed data set, and how many songs had how many artists. It is also especially emphasized with visual presentation, a bar graph, which shows that the outliers was probably the year 2022, which makes sense, the songs last year were the most popular songs of the current year. The graph also shows that generally, the closer the year is to the current one, the more songs from that year makes it to the data set. As for the artist count, it see,s
