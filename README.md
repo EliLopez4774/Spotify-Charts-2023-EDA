@@ -97,3 +97,18 @@ Using .groupby, it is easy to merge how many songs released by the artist were a
 ![image](https://github.com/user-attachments/assets/477063a3-9cf2-4266-a83f-88d434ca9e44)
 
 Taylor Swift has the most song entries that made it to the 2023 most streamed songs: talk about unironic. The Weeknd followed her, though he did get his song as the most streamed of the year and also got the most streamed artist (see Section G).
+
+### Section D - Temporal Trends
+Just using the same dataframe as from Secton B, we can map a line plot of how many songs were released for each year, and with the same interpretation, the close it is to the current year, and the songs from the previous year seem to have the most popularity, the more songs make it to the top stream of the Spotify platform, as presented by the graph.
+
+![image](https://github.com/user-attachments/assets/9e9ed50a-e470-4238-98ad-0ea81d134aed)
+
+And using .groupby and .size once again, we can count how many songs that were released each month were able to make it to the top streamed and present it with a bar graph;
+
+![image](https://github.com/user-attachments/assets/57b8bb74-b3d7-4c56-9537-c3944d63ab4f)
+
+January and May seem competing in how many songs released from their month made it to the top charts. January makes sense even for the songs released that year, it had enough time to be streamed all throughout the year, it could be why songs from ber months only had average, although songs from May seems to have a bit of a mystery.
+
+
+
+
