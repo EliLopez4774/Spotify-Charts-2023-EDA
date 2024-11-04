@@ -113,7 +113,7 @@ January and May seem competing in how many songs released from their month made 
 
 
 ### Section E - Genre and Music Characteristic
-This is where .corr function shined, which was in default, uses Pearson correlation, which interprets as if the values are closer to eiher 1 or -1, they are correlated, positively or negatively, respectively. It can also be visualized using a scatter plot. The .corr function showed a low correlation to all the attributes to the number of streams, the bpm only having -0.002, and the energy% only having -0.02, although danceability% seems to have a negative 10% correlation, which is still pretty bad. These are further emphaszied by the graphs
+This is where .corr function shined, which was in default, uses Pearson correlation, which interprets as if the values are closer to eiher 1 or -1, they are correlated, positively or negatively, respectively. It can also be visualized using a scatter plot. The .corr function showed a low correlation to all the attributes to the number of streams, the bpm only having -0.002 or a negative 0.2% correlation, and the energy% only having -0.02 or a negative 2% correlation. However, danceability% seems to have a negative 10% correlation, which is still pretty bad. These are further emphasized by the graphs
 
 ![image](https://github.com/user-attachments/assets/8551f773-b1f8-4558-9948-d568627ec8ea)
 
@@ -127,7 +127,7 @@ The same thing for attribute to attribute correlation, using the .corr, it prese
 
 ![image](https://github.com/user-attachments/assets/e09f758f-941e-4d8d-bc50-bfaa420c07ca)
 
-There is a faint growth, although it is scattered thoroughly, it could be seen as following a general direction. An then, as for the valence and acousticness, there is only an 8% correlation, which is pretty low, but higher than the 2% and 0.25 from the streams to attributes correlation. This was the graph as visualized of the valence and acousticness;
+There is a faint growth, although it is scattered thoroughly, it could be seen as following a general direction. An then, as for the valence and acousticness, there is only an 8% correlation, which is pretty low, but higher than the 2% and 0.2% from the streams to attributes correlation. This was the graph as visualized of the valence and acousticness;
 
 ![image](https://github.com/user-attachments/assets/9c4e0598-32f6-43c0-ae82-382903d0a762)
 
