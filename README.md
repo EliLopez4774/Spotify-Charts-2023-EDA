@@ -74,6 +74,7 @@ First, importing the required libraries is imperative to manipulate, explore, an
 
 The object pertains to strings and int64 to int values. Some columns must be changed from objects to numerics for mathematical functions such as Central Tendency Functions and Correlation functions. This change however was done after identifying the NaN values and changing them. **There are only two columns with NaN values, the in_shazam_charts with 50 empty entries and key columns with 95 empty entries**, thanks to the help of the combination of .ismull function and .sum function. And with the use of .fillna, the null values were change to either 0s for the in_shazam_charts column, or unknown for the key column. And then after a few manipulation and replacement of commas into nothing, as well as handling a very specific case, using pd.to_numeric, the data types of certain columns like the streams, in_deezer_playlist and in_shazam_charts were replaced to int64
 
+
 ### Section B - Basic Descriptive Statistics
 Thanks to the stream column's data type altered, the Central Tendency functions can now be used, presenting a **mean of 513597931.3137461 streams**, a **median of 290228626 streams**, and the **mode was 156338624 streams**. Outliers can easily be determined using .describe, by looking at the max values, however, two separate dataframes had to be made using .groupby in conjunction with .size, making one for how many songs from each year did it make to the top streamed data set, and how many songs had how many artists. It is also especially emphasized with visual presentation, a bar graph, which shows that the outliers was probably the year 2022, which makes sense, the songs last year were the most popular songs of the current year. The graph also shows that generally, the closer the year is to the current one, the more songs from that year makes it to the data set. 
 
@@ -98,6 +99,7 @@ Using .groupby, it is easy to merge how many songs released by the artist were a
 
 Taylor Swift has the most song entries that made it to the 2023 most streamed songs: talk about unironic. The Weeknd followed her, though he did get his song as the most streamed of the year and also got the most streamed artist (see Section G).
 
+
 ### Section D - Temporal Trends
 Just using the same dataframe as from Secton B, we can map a line plot of how many songs were released for each year, and with the same interpretation, the close it is to the current year, and the songs from the previous year seem to have the most popularity, the more songs make it to the top stream of the Spotify platform, as presented by the graph.
 
@@ -108,6 +110,29 @@ And using .groupby and .size once again, we can count how many songs that were r
 ![image](https://github.com/user-attachments/assets/57b8bb74-b3d7-4c56-9537-c3944d63ab4f)
 
 January and May seem competing in how many songs released from their month made it to the top charts. January makes sense even for the songs released that year, it had enough time to be streamed all throughout the year, it could be why songs from ber months only had average, although songs from May seems to have a bit of a mystery.
+
+
+### Section E - Genre and Music Characteristic
+This is where .corr function shined, which was in default, uses Pearson correlation, which interprets as if the values are closer to eiher 1 or -1, they are correlated, positively or negatively, respectively. It can also be visualized using a scatter plot. The .corr function showed a low correlation to all the attributes to the number of streams, the bpm only having -0.002, and the energy% only having -0.02, although danceability% seems to have a negative 10% correlation, which is still pretty bad. These are further emphaszied by the graphs
+
+![image](https://github.com/user-attachments/assets/8551f773-b1f8-4558-9948-d568627ec8ea)
+
+![image](https://github.com/user-attachments/assets/3876edfa-4a57-4309-a1c6-946cc4e28a73)
+
+![image](https://github.com/user-attachments/assets/b07da41b-b932-49ab-be6f-df50a8f4683e)
+
+As presented, either the stream values are either too low, and/or all the values are scattered all over the place, which presents no correlation at all.
+
+The same thing for attribute to attribute correlation, using the .corr, it presents that danceability and energy had an almost positive 20% correlation, which is the most correlation computed there is among the computed values, but is still pretty low, further proved by the graph visualized
+
+![image](https://github.com/user-attachments/assets/e09f758f-941e-4d8d-bc50-bfaa420c07ca)
+
+There is a faint growth, although it is scattered thoroughly, it could be seen as following a general direction. An then, as for the valence and acousticness, there is only an 8% correlation, which is pretty low, but higher than the 2% and 0.25 from the streams to attributes correlation. This was the graph as visualized of the valence and acousticness;
+
+![image](https://github.com/user-attachments/assets/9c4e0598-32f6-43c0-ae82-382903d0a762)
+
+Most are clumped at the bottom, meaning there are just not enough songs with higher acousticness that made it to the data set to be able to make an accurate assessment of its correlation.
+
 
 
 
