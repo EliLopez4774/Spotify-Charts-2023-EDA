@@ -47,7 +47,7 @@ Do certain genres or artists consistently appear in more playlists or charts? Pe
 ### Section A - Dataset Overview
 First, importing the required libraries is imperative to manipulate, explore, and clean the data, then importing the dataset using pd.read_csv function. the syntax was a little bit different as the traditional, as the .csv file was not utf-8 compatible, so the latin-1 syntax had to be added. Then, using the len function, with axis=0, it is easy to determine the number of rows and axis=1 for the number of columns, presenting **953 rows and 24 columns**. To show the data types of each column, the function dtype was used and the results are as follows;
 
-- **track_name -              object
+- track_name -              object
 - artist(s)_name -         object
 - artist_count -            int64
 - released_year -           int64
@@ -70,7 +70,7 @@ First, importing the required libraries is imperative to manipulate, explore, an
 - acousticness_% -          int64
 - instrumentalness_% -      int64
 - liveness_% -              int64
-- speechiness_% -           int64**
+- speechiness_% -           int64
 
 The object pertains to strings and int64 to int values. Some columns must be changed from objects to numerics for mathematical functions such as Central Tendency Functions and Correlation functions. This change however was done after identifying the NaN values and changing them. **There are only two columns with NaN values, the in_shazam_charts with 50 empty entries and key columns with 95 empty entries**, thanks to the help of the combination of .ismull function and .sum function. And with the use of .fillna, the null values were change to either 0s for the in_shazam_charts column, or unknown for the key column. And then after a few manipulation and replacement of commas into nothing, as well as handling a very specific case, using pd.to_numeric, the data types of certain columns like the streams, in_deezer_playlist and in_shazam_charts were replaced to int64
 
