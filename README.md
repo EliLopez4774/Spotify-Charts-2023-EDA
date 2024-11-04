@@ -136,4 +136,21 @@ Most are clumped at the bottom, meaning there are just not enough songs with hig
 
 ### Section F - Platform Popularity
 
+### Section G - Advanced Analysis
+
+C# was the key with the most song enteries in the data set, and it could be direct correlation to why it also has the most streamed songs, as presented to the graph below. However, while G was the second in the category of having the most songs, it isn't the one with the second most streams, that honor belongs to songs with F#, which makes the C# case a possible outlier or a coincidence, or simply because C# is a pretty common key.
+
+![image](https://github.com/user-attachments/assets/a311722e-3205-4b08-98b2-9baf5892bce0)
+
+![image](https://github.com/user-attachments/assets/005c8051-9e19-4a0e-a5ad-2240e2dcc872)
+
+As for the modes, the count was almost the same for minor and major, and the one who got the higher amount of songs, in this case, the major mode songs, had the higher amount of streams, and considering there are only two of the modes, it isn't enough to make a conclusion regarding the number of streams to the number of songs from the mode that got in the top streamed data set.
+
+![image](https://github.com/user-attachments/assets/a605b4c1-ce71-4e47-be2e-53e94453e8c9)
+
+![image](https://github.com/user-attachments/assets/02a4b0c3-4db9-4f44-ad2d-f5104d27ecea)
+
+Finally, using .copy, .groupby, and .sort_value, it is easy to see which artist had the most streams of the year, and using .sort_value, we can check the ranking based on the different other platforms
+
+The Weeknd, Taylor Swift
 
