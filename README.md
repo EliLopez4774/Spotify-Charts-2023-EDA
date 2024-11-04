@@ -136,15 +136,31 @@ Most are clumped at the bottom, meaning there are just not enough songs with hig
 
 ### Section F - Platform Popularity
 
-### Section G - Advanced Analysis
+![image](https://github.com/user-attachments/assets/df3c3b47-acf4-4642-8043-137061aa8ca0)
 
-C# was the key with the most song enteries in the data set, and it could be direct correlation to why it also has the most streamed songs, as presented to the graph below. However, while G was the second in the category of having the most songs, it isn't the one with the second most streams, that honor belongs to songs with F#, which makes the C# case a possible outlier or a coincidence, or simply because C# is a pretty common key.
+![image](https://github.com/user-attachments/assets/f8c62293-211f-4554-98b6-10a86a4a0a81)
+
+![image](https://github.com/user-attachments/assets/8d33f8f8-9528-49a7-b5e7-5d74429254a0)
+
+![image](https://github.com/user-attachments/assets/c66f7e37-bfe8-4b8d-a80f-2fb4781d90d6)
+
+![image](https://github.com/user-attachments/assets/9e051e7f-4624-41e6-84ae-be2253dbc664)
+
+![image](https://github.com/user-attachments/assets/a3f8f389-3ebb-4769-a941-b0ddee99d1d5)
+
+![image](https://github.com/user-attachments/assets/23ae4de5-60cd-42d5-bf00-1082e4a32293)
+
+Based on these scatterplots, the value of stream and in_spotify_playlist had most clumped up in the lower left corner, meaning least streamed songs also were least entered in the Spotify playlists and increases as the number of streams also increases, at least with a general look, the same thing appears for in_apple_playlist. However, there are not enough high values in the in_spotify_charts, in_apple_charts, in_deezer_playlists, in_deezer_charts, and in_shazam_charts, presented with many plots on the 0 value of the x-axis, to make sense of the data.
+
+
+### Section G - Advanced Analysis
+C# was the key with the most song entries in the data set, and it could be a direct correlation to why it also has the most streamed songs, as presented in the graph below. However, while G was the second in the category of having the most songs, it isn't the one with the second most streams. That honor belongs to songs with F#, which makes the C# case a possible outlier or a coincidence, or simply because C# is a pretty common key.
 
 ![image](https://github.com/user-attachments/assets/a311722e-3205-4b08-98b2-9baf5892bce0)
 
 ![image](https://github.com/user-attachments/assets/005c8051-9e19-4a0e-a5ad-2240e2dcc872)
 
-As for the modes, the count was almost the same for minor and major, and the one who got the higher amount of songs, in this case, the major mode songs, had the higher amount of streams, and considering there are only two of the modes, it isn't enough to make a conclusion regarding the number of streams to the number of songs from the mode that got in the top streamed data set.
+As for the modes, the count was almost the same for minor and major, and the one who got the higher number of songs, in this case, the major mode songs, had the higher number of streams. Considering there are only two of the modes, it isn't enough to draw a conclusion regarding the number of streams and the number of songs from the mode that got in the top streamed data set.
 
 ![image](https://github.com/user-attachments/assets/a605b4c1-ce71-4e47-be2e-53e94453e8c9)
 
@@ -152,5 +168,5 @@ As for the modes, the count was almost the same for minor and major, and the one
 
 Finally, using .copy, .groupby, and .sort_value, it is easy to see which artist had the most streams of the year, and using .sort_value, we can check the ranking based on the different other platforms
 
-The Weeknd, Taylor Swift
+The Weeknd appeared in the top ten songs of all the charts and playlists except the Deezer charts. Taylor Swift also appeared in the top ten except Deezer playlists. Ed Sheeran didn't appear in both Spotify charts and Shazam charts. harry Styles also did not appear in two charts, Deezer and Shazam. Bad Bunny and Eminem didn't appear in three categories. Olivia Rodrigo only appeared thrice among the 7 categories, the same as the Arctic Monkeys, while Coldplay only appeared once, and Bruno Mars did not appear anywhere except the top streams. 
 
