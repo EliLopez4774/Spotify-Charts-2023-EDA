@@ -1,8 +1,10 @@
 # Spotify-Charts-2023-EDA
 
-We were tasked to commit an exploratory data analysis on a dataset containing information about popular tracks on Most Streamed Spotify Songs 2023 [(spotify-2023.csv)](https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023)
+# Introduction
 
-## Dependecies
+We were tasked to do exploratory data analysis on a dataset containing information about popular tracks on Most Streamed Spotify Songs 2023 [(Spotify-2023.csv)](https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023).
+
+## Dependencies
 For this task, the following 
 - Jupyter Notebook
 - Pandas Library
@@ -12,7 +14,7 @@ For this task, the following
 
 ## Guide Questions
 
-These served as a guidlines and the questions posed for the code written, the results, and the visual presentations as well as its interpretations are to answer.
+These questions served as guidelines, and the questions posed for the code written, the results, the visual presentations, and their interpretations are to be answered.
 
 ### A. Overview of Dataset
 How many rows and columns does the dataset contain?
@@ -42,10 +44,10 @@ Based on the streams data, can you identify any patterns among tracks with the s
 Do certain genres or artists consistently appear in more playlists or charts? Perform an analysis to compare the most frequently appearing artists in playlists or charts.
 
 
-# ---------------------------------------------------------------
+# Methods, Results, Analysis
 
 ### Section A - Dataset Overview
-First, importing the required libraries is imperative to manipulate, explore, and clean the data, then importing the dataset using pd.read_csv function. the syntax was a little bit different as the traditional, as the .csv file was not utf-8 compatible, so the latin-1 syntax had to be added. Then, using the len function, with axis=0, it is easy to determine the number of rows and axis=1 for the number of columns, presenting **953 rows and 24 columns**. To show the data types of each column, the function dtype was used and the results are as follows;
+First, importing the required libraries is imperative to manipulate, explore, and clean the data, then importing the dataset using pd.read_csv function. the syntax was a little bit different as the traditional, as the .csv file was not utf-8 compatible, so the latin-1 syntax had to be added. Then, using the len function, with axis=0, it is easy to determine the number of rows and axis=1 for the number of columns, presenting **953 rows and 24 columns**. To show the data types of each column, the function dtype was used, and the results are as follows;
 
 - track_name -              object
 - artist(s)_name -         object
@@ -72,16 +74,16 @@ First, importing the required libraries is imperative to manipulate, explore, an
 - liveness_% -              int64
 - speechiness_% -           int64
 
-The object pertains to strings and int64 to int values. Some columns must be changed from objects to numerics for mathematical functions such as Central Tendency Functions and Correlation functions. This change however was done after identifying the NaN values and changing them. **There are only two columns with NaN values, the in_shazam_charts with 50 empty entries and key columns with 95 empty entries**, thanks to the help of the combination of .ismull function and .sum function. And with the use of .fillna, the null values were change to either 0s for the in_shazam_charts column, or unknown for the key column. And then after a few manipulation and replacement of commas into nothing, as well as handling a very specific case, using pd.to_numeric, the data types of certain columns like the streams, in_deezer_playlist and in_shazam_charts were replaced to int64
+The object pertains to strings and int64 to int values. Some columns must be changed from objects to numerics for mathematical functions such as Central Tendency Functions and Correlation functions. However, this change was done after identifying and changing the NaN values. **There are only two columns with NaN values, the in_shazam_charts with 50 empty entries and key columns with 95 empty entries**, thanks to the help of the combination of the .isnull function and .sum function. Using .fillna, the null values were changed to 0s for the in_shazam_charts column or unknown for the key column. Then, after a few manipulations and the replacement of commas into nothing, as well as handling a very specific case, using pd.to_numeric, the data types of certain columns like the streams, in_deezer_playlist, and in_shazam_charts were replaced to int64
 
 
 ### Section B - Basic Descriptive Statistics
-Thanks to the stream column's data type altered, the Central Tendency functions can now be used, presenting a **mean of 513597931.3137461 streams**, a **median of 290228626 streams**, and the **mode was 156338624 streams**. Outliers can easily be determined using .describe, by looking at the max values, however, two separate dataframes had to be made using .groupby in conjunction with .size, making one for how many songs from each year did it make to the top streamed data set, and how many songs had how many artists. It is also especially emphasized with visual presentation, a bar graph, which shows that the outliers was probably the year 2022, which makes sense, the songs last year were the most popular songs of the current year. The graph also shows that generally, the closer the year is to the current one, the more songs from that year makes it to the data set. 
+Thanks to the stream column's data type being altered, the Central Tendency functions can now be used, presenting a **mean of 513597931.3137461 streams**, a **median of 290228626 streams**, and the **mode was 156338624 streams**. Outliers can easily be determined using .describe by looking at the max values; however, two separate data frames had to be made using .groupby in conjunction with .size, making one for how many songs from each year it made to the top streamed data set, and how many songs had how many artists. It is also especially emphasized with visual presentation, a bar graph, which shows that the outliers was probably the year 2022, which makes sense, the songs last year were the most popular songs of the current year. The graph also shows that generally, the closer the year is to the current one, the more songs from that year make it to the data set. 
 
 ![image](https://github.com/user-attachments/assets/1df587ac-2048-4562-8a17-ad5c58160ed6)
 
 
-As for the artist count, it seems that the less artist makes a song, the less popular it is, which makes sense, considering collabs with multiple artists and/or bands are rare and songs from one artist or band are more often released. 
+As for the artist count, it seems that the less artist makes a song, the less popular it is, which makes sense, considering collaborative songs with multiple artists and/or bands are rather rare and songs from one artist or band are more often released in the media. 
 
 ![image](https://github.com/user-attachments/assets/943383b5-7e41-45e3-81cb-4a165d268fe5)
 
@@ -101,7 +103,7 @@ Taylor Swift has the most song entries that made it to the 2023 most streamed so
 
 
 ### Section D - Temporal Trends
-Just using the same dataframe as from Secton B, we can map a line plot of how many songs were released for each year, and with the same interpretation, the close it is to the current year, and the songs from the previous year seem to have the most popularity, the more songs make it to the top stream of the Spotify platform, as presented by the graph.
+Just using the same dataframe as from Section B, we can map a line plot of how many songs were released for each year, and with the same interpretation, the close it is to the current year, and the songs from the previous year seem to have the most popularity, the more songs make it to the top stream of the Spotify platform, as presented by the graph.
 
 ![image](https://github.com/user-attachments/assets/9e9ed50a-e470-4238-98ad-0ea81d134aed)
 
@@ -113,7 +115,7 @@ January and May seem competing in how many songs released from their month made 
 
 
 ### Section E - Genre and Music Characteristic
-This is where .corr function shined, which was in default, uses Pearson correlation, which interprets as if the values are closer to eiher 1 or -1, they are correlated, positively or negatively, respectively. It can also be visualized using a scatter plot. The .corr function showed a low correlation to all the attributes to the number of streams, the bpm only having -0.002 or a negative 0.2% correlation, and the energy% only having -0.02 or a negative 2% correlation. However, danceability% seems to have a negative 10% correlation, which is still pretty bad. These are further emphasized by the graphs
+This is where the .corr function shined, which was in default, uses Pearson correlation, which interprets that if the values are closer to 1 or -1, then the more that hey are correlated, positively or negatively, respectively. It can also be visualized using a scatter plot. The .corr function showed a low correlation to all the attributes to the number of streams, the bpm only having -0.002 or a negative 0.2% correlation, and the energy% only having -0.02 or a negative 2% correlation. However, danceability% seems to have a negative 10% correlation, which is still pretty bad. The graphs below further emphasize these results.
 
 ![image](https://github.com/user-attachments/assets/8551f773-b1f8-4558-9948-d568627ec8ea)
 
@@ -127,7 +129,7 @@ The same thing for attribute to attribute correlation, using the .corr, it prese
 
 ![image](https://github.com/user-attachments/assets/e09f758f-941e-4d8d-bc50-bfaa420c07ca)
 
-There is a faint growth, although it is scattered thoroughly, it could be seen as following a general direction. An then, as for the valence and acousticness, there is only an 8% correlation, which is pretty low, but higher than the 2% and 0.2% from the streams to attributes correlation. This was the graph as visualized of the valence and acousticness;
+There is a faint growth; although it is scattered thoroughly, it could be seen as following a general direction. Then, as for the valence and acoustics, there is only an 8% correlation, which is pretty low but higher than the 2% and 0.2% from the streams to attributes correlation. This was the graph as visualized of the valence and acousticness;
 
 ![image](https://github.com/user-attachments/assets/9c4e0598-32f6-43c0-ae82-382903d0a762)
 
@@ -154,13 +156,13 @@ Based on these scatterplots, the value of stream and in_spotify_playlist had mos
 
 
 ### Section G - Advanced Analysis
-C# was the key with the most song entries in the data set, and it could be a direct correlation to why it also has the most streamed songs, as presented in the graph below. However, while G was the second in the category of having the most songs, it isn't the one with the second most streams. That honor belongs to songs with F#, which makes the C# case a possible outlier or a coincidence, or simply because C# is a pretty common key.
+C# was the key with the most song entries in the data set, and it could be a direct correlation to why it also has the most streamed songs, as presented in the graph below. However, while G was the second in the category of having the most songs, it isn't the one with the second most streams. That honor belongs to songs with F#, making the C# case a possible outlier or a coincidence, or simply because C# is a common key.
 
 ![image](https://github.com/user-attachments/assets/a311722e-3205-4b08-98b2-9baf5892bce0)
 
 ![image](https://github.com/user-attachments/assets/005c8051-9e19-4a0e-a5ad-2240e2dcc872)
 
-As for the modes, the count was almost the same for minor and major, and the one who got the higher number of songs, in this case, the major mode songs, had the higher number of streams. Considering there are only two of the modes, it isn't enough to draw a conclusion regarding the number of streams and the number of songs from the mode that got in the top streamed data set.
+As for the modes, the count was almost the same for minor and major, and the one who got the higher number of songs, in this case, the major mode songs, had the higher number of streams. Considering there are only two modes, it isn't enough to draw a conclusion regarding the number of streams and songs from the mode that got in the top streamed data set.
 
 ![image](https://github.com/user-attachments/assets/a605b4c1-ce71-4e47-be2e-53e94453e8c9)
 
@@ -168,5 +170,5 @@ As for the modes, the count was almost the same for minor and major, and the one
 
 Finally, using .copy, .groupby, and .sort_value, it is easy to see which artist had the most streams of the year, and using .sort_value, we can check the ranking based on the different other platforms
 
-The Weeknd appeared in the top ten songs of all the charts and playlists except the Deezer charts. Taylor Swift also appeared in the top ten except Deezer playlists. Ed Sheeran didn't appear in both Spotify charts and Shazam charts. harry Styles also did not appear in two charts, Deezer and Shazam. Bad Bunny and Eminem didn't appear in three categories. Olivia Rodrigo only appeared thrice among the 7 categories, the same as the Arctic Monkeys, while Coldplay only appeared once, and Bruno Mars did not appear anywhere except the top streams. 
+The Weeknd appeared in the top ten songs of all the charts and playlists except the Deezer charts. Taylor Swift also appeared in the top ten except Deezer playlists. Ed Sheeran didn't appear in both Spotify charts and Shazam charts. harry Styles also did not appear in two charts, Deezer and Shazam. Bad Bunny and Eminem didn't appear on three other platforms/categories. Olivia Rodrigo only appeared thrice among the 7 categories, the same as the Arctic Monkeys, while Coldplay only appeared once, and Bruno Mars did not appear anywhere except the top streams. In conclusion, yes, platforms favor more popular songs, albeit some appear less frequently than others in other ones.
 
